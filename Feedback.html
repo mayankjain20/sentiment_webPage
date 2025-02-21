@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Sentiment Analysis</title>
+
+<style>
+
+     
+        /* Navigation Bar */
+      /* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #c3a1f7;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1b3450;
+    padding: 15px 50px;
+}
+
+nav .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+}
+
+nav .logo span {
+    color: #f2f2f2;
+}
+
+
+
+/* Feedback Section */
+.feedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+}
+
+.feedback-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 50%;
+    transition: 0.3s;
+}
+
+.feedback-container:hover {
+    transform: scale(1.02);
+}
+
+.feedback-container h2 {
+    font-size: 2.2em;
+    color: #333;
+}
+
+.feedback-container p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.feedback-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedback-container label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.feedback-container input, 
+.feedback-container textarea {
+    width: 80%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.feedback-container input:focus, 
+.feedback-container textarea:focus {
+    border-color: #00C471;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 196, 113, 0.5);
+}
+
+.feedback-container textarea {
+    resize: none;
+}
+
+.feedback-container button {
+    background: #1b3450;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.feedback-container button:hover {
+    background: #2a5685;
+    transform: scale(1.05);
+}
+
+/* Character Count */
+#charCount {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Response Message */
+#responseMessage {
+    color: #008000;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+</style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Vचार</div>
+       
+    </nav>
+
+    <!-- Feedback Section -->
+    <section class="feedback">
+        <div class="feedback-container">
+            <h2>We Value Your Feedback</h2>
+            <p>Help us improve by sharing your thoughts!</p>
+
+            <form id="feedbackForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="message">Your Feedback:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your feedback..." required></textarea>
+                <small id="charCount">0/250 characters</small>
+
+                <button type="submit">Submit Feedback</button>
+                <p id="responseMessage" class="hidden">Thank you for your feedback! 💬</p>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

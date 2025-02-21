@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Tool</title>
+    <style>
+        /* Base Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #c3a1f7; /* Soft background color */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer sticks to the bottom */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(90deg, #0d2751, #0e5b9a);
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px 50px;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+     
+        /* Typing Header */
+        header {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px 50px;
+            
+        }
+
+        .typing-header {
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #0d2751, #0e5b9a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: typing 3s steps(30, end), blink 0.2s step-end infinite alternate;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            from {
+                border-right: 4px solid transparent;
+            }
+            to {
+                border-right: 4px solid black;
+            }
+        }
+
+        /* Platform Selector */
+        .platform-selector {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .platform-selector label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .platform-selector select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Platform Sections */
+        .platform-section {
+            display: none;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff; /* Bright white card */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform-section.active {
+            display: block;
+        }
+
+        .platform-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #2196f3;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .platform-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background-color: #f9f9f9; /* Light input background */
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: none;
+        }
+
+        .platform-section button {
+            padding: 12px 25px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff; /* White text for contrast */
+            background-color: #1b3450;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #1b3450;
+            color: white;
+            margin-top: auto; /* Push footer to bottom */
+        }
+
+        /* Contact, About, and Feedback Section */
+        .info-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #4caf50;
+        }
+
+        .info-section p {
+            font-size: 1em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .info-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            resize: none;
+        }
+
+        .info-section button {
+            padding: 12px 25px;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+        }
+        .logo{
+            font-family: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Vचार</div>
+       
+    </nav>
+
+    <!-- Typing Header -->
+    <header>
+        <h1 class="typing-header">Sentiment Analysis of Social Media Platforms</h1>
+    </header>
+
+    <!-- Platform Selector -->
+    <div class="platform-selector">
+        <label for="platform">Select a Platform:</label>
+        <select id="platform">
+            <option value="youtube">YouTube</option>
+            <option value="twitter">Twitter</option>
+            <option value="instagram">Instagram</option>
+            <option value="facebook">Facebook</option>
+        </select>
+    </div>
+
+    <!-- Platform Sections -->
+    <section id="youtube" class="platform-section">
+        <h3>YouTube Sentiment Analysis</h3>
+        <textarea placeholder="Type your YouTube comment here..."></textarea>
+        <button>Analyze Text</button>
+    </section>
+
+    <section id="twitter" class="platform-section">
+        <h3>Twitter Sentiment Analysis</h3>
+        <textarea placeholder="Type your Twitter text here..."></textarea>
+        <button>Analyze Text</button>
+    </section>
+
+    <section id="instagram" class="platform-section active">
+        <h3>Instagram Sentiment Analysis</h3>
+        <textarea placeholder="Type your Instagram text here..."></textarea>
+        <button>Analyze Text</button>
+    </section>
+
+    <section id="facebook" class="platform-section">
+        <h3>Facebook Sentiment Analysis</h3>
+        <textarea placeholder="Type your Facebook text here..."></textarea>
+        <button>Analyze Text</button>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Sentiment Analysis Tool. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript for platform selector
+        const platformSelector = document.getElementById('platform');
+        const sections = document.querySelectorAll('.platform-section');
+
+        platformSelector.addEventListener('change', function () {
+            const selectedPlatform = platformSelector.value;
+            sections.forEach(section => {
+                if (section.id === selectedPlatform) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

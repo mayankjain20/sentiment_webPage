@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #c3a1f7;
+    color: #333;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #1b3450;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: white;
+    
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Navigation Links */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect with Box */
+nav a:hover {
+    background: #1b3450;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(10, 10, 10);
+}
+
+.request-btn {
+    margin-top: 20px;
+    background: #1b3450;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.request-btn:hover {
+    background: #1b3450;
+    transform: scale(1.1);
+}
+
+/* Image */
+.hero-image img {
+    width: 850px;
+    border-radius: 400px;
+}
